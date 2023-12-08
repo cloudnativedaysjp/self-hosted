@@ -369,13 +369,13 @@ services:
     command: run worker
   events-consumer:
     <<: *sentry_defaults
-    command: run consumer ingest-events --consumer-group ingest-consumer --concurrency 200 --max-batch-size 1000
+    command: run consumer ingest-events --consumer-group ingest-consumer --max-batch-size 1000
   attachments-consumer:
     <<: *sentry_defaults
-    command: run consumer ingest-attachments --consumer-group ingest-consumer --concurrency 200 --max-batch-size 1000
+    command: run consumer ingest-attachments --consumer-group ingest-consumer --max-batch-size 1000
   transactions-consumer:
     <<: *sentry_defaults
-    command: run consumer ingest-transactions --consumer-group ingest-consumer --concurrency 200 --max-batch-size 1000
+    command: run consumer ingest-transactions --consumer-group ingest-consumer --max-batch-size 1000
   metrics-consumer:
     <<: *sentry_defaults
     command: run consumer ingest-metrics --consumer-group metrics-consumer
