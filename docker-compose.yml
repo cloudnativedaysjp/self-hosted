@@ -369,13 +369,13 @@ services:
     command: run worker
   events-consumer:
     <<: *sentry_defaults
-    command: run consumer ingest-events --consumer-group ingest-consumer --max-batch-size 1000
+    command: run consumer ingest-events --consumer-group ingest-consumer
   attachments-consumer:
     <<: *sentry_defaults
-    command: run consumer ingest-attachments --consumer-group ingest-consumer --max-batch-size 1000
+    command: run consumer ingest-attachments --consumer-group ingest-consumer
   transactions-consumer:
     <<: *sentry_defaults
-    command: run consumer ingest-transactions --consumer-group ingest-consumer --max-batch-size 1000
+    command: run consumer ingest-transactions --consumer-group ingest-consumer
   metrics-consumer:
     <<: *sentry_defaults
     command: run consumer ingest-metrics --consumer-group metrics-consumer
@@ -525,6 +525,8 @@ volumes:
     external: true
   sentry-symbolicator:
     external: true
+  prometheus-data:
+    external: true
   # This volume stores profiles and should be persisted.
   # Not being external will still persist data across restarts.
   # It won't persist if someone does a docker compose down -v.
@@ -539,4 +541,3 @@ volumes:
   sentry-smtp-log:
   sentry-clickhouse-log:
   https-portal-data:
-  prometheus-data:
