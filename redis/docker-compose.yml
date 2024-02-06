@@ -35,7 +35,7 @@ services:
     ports:
       - 6379:6379
   redis-exporter:
-    image: oliver006/redis_exporter:v1.51.0
+    image: oliver006/redis_exporter:v1.57.0
     <<: *default_policy
     environment:
       REDIS_ADDR: "redis://redis:6379"

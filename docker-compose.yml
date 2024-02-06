@@ -145,7 +145,7 @@ services:
         target: /opt/sentry/
   postgres-exporter:
     <<: *restart_policy
-    image: quay.io/prometheuscommunity/postgres-exporter:v0.13.2
+    image: quay.io/prometheuscommunity/postgres-exporter:v0.15.0
     environment:
       DATA_SOURCE_NAME: "postgresql://postgres:@postgres:5432/postgres?sslmode=disable"
     ports:
