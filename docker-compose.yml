@@ -74,7 +74,6 @@ x-sentry-defaults: &sentry_defaults
     SENTRY_EVENT_RETENTION_DAYS:
     SENTRY_MAIL_HOST:
     SENTRY_MAX_EXTERNAL_SOURCEMAP_SIZE:
-    # Set this value if you plan on using the Suggested Fix Feature
     OPENAI_API_KEY:
   volumes:
     - "sentry-data:/data"
@@ -102,6 +101,7 @@ x-snuba-defaults: &snuba_defaults
 services:
   smtp:
     <<: *restart_policy
+    platform: linux/amd64
     image: tianon/exim4
     hostname: "${SENTRY_MAIL_HOST:-}"
     volumes:
@@ -394,6 +394,9 @@ services:
   ingest-profiles:
     <<: *sentry_defaults
     command: run consumer --no-strict-offset-reset ingest-profiles --consumer-group ingest-profiles
+  ingest-monitors:
+    <<: *sentry_defaults
+    command: run consumer --no-strict-offset-reset ingest-monitors --consumer-group ingest-monitors
   post-process-forwarder-errors:
     <<: *sentry_defaults
     command: run consumer post-process-forwarder-errors --consumer-group post-process-forwarder --synchronize-commit-log-topic=snuba-commit-log --synchronize-commit-group=snuba-consumers

@@ -1,5 +1,59 @@
 # Changelog
 
+## 24.1.1
+
+### Various fixes & improvements
+
+- Revert "Move open ai key from env variables" (#2724) by @hubertdeng123
+- Fix cache error self hosted (#2722) by @hubertdeng123
+
+## 24.1.0
+
+### Various fixes & improvements
+
+- Enable crons (#2712) by @hubertdeng123
+- Parameterize backup restore script (#2412) by @hubertdeng123
+- Run tests only on getsentry repository (#2681) by @aminvakil
+- Tweak the template now that we can see it (#2670) by @chadwhitacre
+- Nginx client request body is buffered to a temporary file (#2630) by @zKoz210
+
+## 23.12.1
+
+### Various fixes & improvements
+
+- Make a release issue template (#2666) by @chadwhitacre
+
+## 23.12.0
+
+### Various fixes & improvements
+
+- test(backup): Use --no-prompt for backup tests (#2618) by @azaslavsky
+
+## 23.11.2
+
+- No documented changes.
+
+## 23.11.1
+
+### Various fixes & improvements
+
+- feat: Add sentry-admin.sh tool (#2594) by @azaslavsky
+- Patch for dev self-hosted environments (#2592) by @hubertdeng123
+- Relicense under FSL-1.0-Apache-2.0 (#2586) by @chadwhitacre
+- Bump minimum ram usage (#2585) by @hubertdeng123
+
+## 23.11.0
+
+### Various fixes & improvements
+
+- feat: provide a toggle to enable discord integration (#2548) by @aldy505
+- ref: fix a typo (#2556) by @asottile-sentry
+- ref: use `git branch --show-current` instead of sed (#2550) by @asottile-sentry
+- Remove sessions infra (#2514) by @hubertdeng123
+- Upgrade Clickhouse to 21.8 (#2536) by @hubertdeng123
+- [Snyk] Security upgrade debian from bullseye-slim to bookworm-20231009-slim (#2511) by @Indigi-managed
+- snuba: Remove deprecated CLI arg (#2515) by @lynnagara
+
 ## 23.10.1
 
 ### Various fixes & improvements
