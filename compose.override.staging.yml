@@ -2,6 +2,12 @@ x-restart-policy: &restart_policy
   restart: unless-stopped
 
 services:
+  redis:
+    ports:
+      - '6379:6379'
+  postgres:
+    ports:
+      - '5432:5432'
   https-portal:
     <<: *restart_policy
     image: steveltn/https-portal:1
