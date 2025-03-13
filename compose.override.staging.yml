@@ -21,6 +21,18 @@ services:
       - https-portal-data:/var/lib/https-portal
     depends_on:
       - nginx
+  kafka-exporter:
+    <<: *restart_policy
+    image: danielqsj/kafka-exporter:v1.7.0
+    restart: always
+    ports:
+      - 9308:9308
+    healthcheck:
+      <<: *healthcheck_defaults
+      test: [ "CMD-SHELL", "nc -z localhost 9308" ]
+      interval: 10s
+      timeout: 10s
+      retries: 30
 
 volumes:
   https-portal-data:
